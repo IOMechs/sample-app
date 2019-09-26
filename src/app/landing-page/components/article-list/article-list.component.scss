@@ -3,6 +3,7 @@
 .article-card-list {
   width: 100%;
   &__article-card {
+    overflow: hidden;
     position: relative;
     background-size: contain;
     background-position: -40% 80%;
