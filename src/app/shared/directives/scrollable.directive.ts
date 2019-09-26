@@ -10,7 +10,7 @@ export class ScrollableDirective {
   constructor(public el: ElementRef) { }
 
   @HostListener('window:scroll', ['$event'])
-  onScroll() {
+  onScroll($event) {
     try {
       const scrollPosition = (document.documentElement.scrollTop || document.body.scrollTop) + document.documentElement.offsetHeight;
       const pageHeight = document.documentElement.scrollHeight;
