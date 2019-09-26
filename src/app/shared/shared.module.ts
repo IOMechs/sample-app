@@ -4,15 +4,19 @@ import { CommonModule } from '@angular/common';
 import { AlertComponent } from './components/alert/alert.component';
 import { AlertService } from './services/alert.service';
 import { ScrollableDirective } from './directives/scrollable.directive';
+import { LazyImageComponent } from './components/lazy-image/lazy-image.component';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LazyLoadImageModule
   ],
   declarations: [
     AlertComponent,
-    ScrollableDirective
+    ScrollableDirective,
+    LazyImageComponent
   ],
   providers: [
     AlertService
@@ -20,7 +24,8 @@ import { ScrollableDirective } from './directives/scrollable.directive';
   entryComponents: [],
   exports: [
     AlertComponent,
-    ScrollableDirective
+    ScrollableDirective,
+    LazyImageComponent
   ]
 })
 export class SharedModule { }
