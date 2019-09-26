@@ -3,6 +3,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AlertComponent } from './components/alert/alert.component';
 import { AlertService } from './services/alert.service';
+import { ScrollableDirective } from './directives/scrollable.directive';
 
 @NgModule({
   imports: [
@@ -10,12 +11,16 @@ import { AlertService } from './services/alert.service';
     ReactiveFormsModule
   ],
   declarations: [
-    AlertComponent
+    AlertComponent,
+    ScrollableDirective
   ],
   providers: [
     AlertService
   ],
   entryComponents: [],
-  exports: [AlertComponent]
+  exports: [
+    AlertComponent,
+    ScrollableDirective
+  ]
 })
 export class SharedModule { }

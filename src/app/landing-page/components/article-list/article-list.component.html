@@ -1,0 +1,29 @@
+<div class="article-card-list" [@articlesAnimation]="(page.data | async).length" appScrollable (scrollPosition)="scrollHandler($event)">
+  <a style="box-shadow:none" *ngFor="let article of page.data | async" [href]="article.articleUrl" target="_blank">
+    <div class="article-card-list__article-card" [style.background]="'url(' + article.imgUrl + ')'">
+      <div class="article-card-list__article-card__color-overlay">
+        <div class="article-card-list__article-card__color-overlay__article-action" *ngIf="isAdmin">
+          <span class="article-card-list__article-card__color-overlay__article-action__delete-icon">
+            <i class="fa fa-trash"></i>
+          </span>
+          <span class="article-card-list__article-card__color-overlay__article-action__edit-icon">
+            <i class="fas fa-edit"></i>
+          </span>
+        </div>
+        <div class="article-card-list__article-card__color-overlay__article-content">
+          <div class="article-card-list__article-card__color-overlay__article-content__article-header">
+            <h4 class="article-card-list__article-card__color-overlay__article-content__article-header__article-title">{{article.title}}</h4>
+            <h5 class="article-card-list__article-card__color-overlay__article-content__article-header__article-author">{{article.author}}</h5>
+            <h6 class="article-card-list__article-card__color-overlay__article-content__article-header__article-info">{{article.info}}</h6>
+          </div>
+          <p class="article-card-list__article-card__color-overlay__article-content__article-desc">{{article.description}}</p>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+<div class="text-center" *ngIf="page.loading | async">
+  <div class="spinner-border spinner" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>

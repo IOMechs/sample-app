@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
     .then(() => {
       this.authService.updateCurrentUser({fullName: this.form.fullName.value});
       this.alertService.success('Registration successful', true);
-      this.router.navigate(['landing-page']);
+      this.router.navigate(['articles']);
     })
     .catch(error => {
       this.alertService.error(error);
