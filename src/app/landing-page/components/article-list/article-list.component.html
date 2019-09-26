@@ -4,12 +4,16 @@
       <app-lazy-image class="article-card-list__article-card__image" [src]="article.imgUrl"></app-lazy-image>
       <div class="article-card-list__article-card__color-overlay">
         <div class="article-card-list__article-card__color-overlay__article-action" *ngIf="isAdmin">
-          <span class="article-card-list__article-card__color-overlay__article-action__delete-icon">
-            <i class="fa fa-trash"></i>
-          </span>
-          <span class="article-card-list__article-card__color-overlay__article-action__edit-icon">
-            <i class="fas fa-edit"></i>
-          </span>
+          <button class="btn btn-sm btn-danger" (click)="delete(article, $event)">
+            <span class="article-card-list__article-card__color-overlay__article-action__delete-icon">
+              Delete
+            </span>
+          </button>
+          <button class="btn btn-sm btn-dark" (click)="edit(article, $event)">
+            <span class="article-card-list__article-card__color-overlay__article-action__edit-icon">
+              Edit
+            </span>
+          </button>
         </div>
         <div class="article-card-list__article-card__color-overlay__article-content">
           <div class="article-card-list__article-card__color-overlay__article-content__article-header">
