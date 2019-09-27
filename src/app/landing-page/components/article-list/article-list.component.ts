@@ -54,6 +54,24 @@ export class ArticleListComponent implements OnInit, OnDestroy {
     }
   }
 
+  delete(article, $event) {
+    // to prevent navigation to article
+    if ($event) {
+      $event.preventDefault();
+      $event.stopImmediatePropagation();
+    }
+    confirm(`Are you sure you want to delete "${article.title}" ?`);
+  }
+
+  edit(article, $event) {
+    if ($event) {
+      // to prevent navigation to article
+      $event.preventDefault();
+      $event.stopImmediatePropagation();
+    }
+    alert(`You're editing "${article.title}"`);
+  }
+
   ngOnDestroy() {
     this.page.resetPagination();
     this.componentAlive = false;
