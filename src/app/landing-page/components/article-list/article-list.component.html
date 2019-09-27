@@ -2,7 +2,7 @@
   <a style="box-shadow:none" *ngFor="let article of page.data | async" [href]="article.articleUrl" target="_blank">
     <div class="article-card-list__article-card" [style.background]="'url(' + article.imgUrl + ')'">
       <div class="article-card-list__article-card__color-overlay">
-        <div class="article-card-list__article-card__color-overlay__article-action" *ngIf="isAdmin">
+        <div class="article-card-list__article-card__color-overlay__article-action" *ngIf="authService.isAdmin | async">
           <span class="article-card-list__article-card__color-overlay__article-action__delete-icon">
             <i class="fa fa-trash"></i>
           </span>

@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 import { PaginationService } from 'src/app/shared/services/pagination.service';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { takeWhile } from 'rxjs/operators';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-article-list',
@@ -37,20 +38,13 @@ import { takeWhile } from 'rxjs/operators';
 })
 export class ArticleListComponent implements OnInit, OnDestroy {
   componentAlive: boolean;
-  isAdmin = false;
-  constructor(public page: PaginationService, private afAuth: AngularFireAuth) { }
+  constructor(
+    public page: PaginationService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
     this.componentAlive = true;
-    this.afAuth.authState
-    .pipe(
-      takeWhile(() => this.componentAlive)
-    )
-    .subscribe(user => {
-      if (user && user.email === 'admin@gmail.com') {
-        this.isAdmin = true;
-      }
-    });
     this.page.init('articles', 'created', { reverse: true, prepend: false, limit: 5 });
   }
 
