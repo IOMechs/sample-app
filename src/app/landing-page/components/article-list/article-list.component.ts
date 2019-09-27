@@ -40,7 +40,7 @@ export class ArticleListComponent implements OnInit, OnDestroy {
   componentAlive: boolean;
   constructor(
     public page: PaginationService,
-    private authService: AuthService
+    public authService: AuthService
   ) { }
 
   ngOnInit() {
